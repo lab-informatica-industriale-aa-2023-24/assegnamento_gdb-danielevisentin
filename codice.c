@@ -18,8 +18,8 @@ void estrai_dati(int ac, char **av, int *vett, int *lung)
 
 void fai_spazio(int posizione, int *vett, int lung)
 {
-	for (int j = lung - 1; j > posizione; ++j) 
-		vett[j] = vett[j-1];
+	for (int j = lung - 1; j >= posizione; j--)
+		vett[j+1] = vett[j];
 }
 
 void inserisci(int nuovo_dato, int num_dati_ord, int *vett)
@@ -67,7 +67,7 @@ int main(int argc, char **argv)
 	int num_dati = 0;
 
 	estrai_dati(argc, argv, dati_input, &num_dati);
-	ordina_dati(dati_input, dati_ordinati, sizeof(dati_input)/sizeof(dati_input[0]);
+	ordina_dati(dati_input, dati_ordinati,argc);
 	stampa_vettore(dati_ordinati, num_dati);
 	return 0;
 }
